@@ -62,6 +62,9 @@ A mutex is used to define a **critical region**, which is a section of the progr
 > Of course, before you use the rubber chicken, you need to ask yourself whether you actually need 5 people in one room and would it not just be easier with one person in the room on their own doing
 >  all the work. Actually, this is just extending the analogy, but you get the idea.
 
+
+![Mutex](https://iq.opengenus.org/content/images/2023/07/A351_Mutex-and-Semaphore-in-OS2.png)
+
 A mutex has two primary operations: **locking (lock)** and **unlocking (unlock)**. Through locking, a thread marks entry into the critical region, indicating that any other thread attempting to perform a locking operation will have to wait. Unlocking signifies the exit from the critical region, granting permission for another thread to enter the critical region.
 
 In Pthreads, a typical sequence of using a mutex looks like this:
@@ -132,6 +135,35 @@ int main() {
 }
 
 ```
+
+I. In Pthreads, a mutex is represented by a variable of type pthread_mutex_t, and it is initialized using the following function:
+```C
+int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *attr);
+```
+The first parameter represents a reference to the mutex variable, and the second parameter specifies the attributes of the newly created mutex (if default behavior is desired, the attr parameter can be left as NULL).
+
+II. To deallocate a mutex, the following function is used, which takes a pointer to the mutex to be destroyed as a parameter:
+```C
+int pthread_mutex_destroy(pthread_mutex_t *mutex);
+```
+
+III. To lock a mutex, the following function is used, which takes the mutex as its parameter:
+```C
+int pthread_mutex_lock(pthread_mutex_t *mutex);
+```
+
+IV. The reverse operation, which specifies the exit from a critical region (i.e., unlocking the mutex), is performed using the following function:
+```C
+int pthread_mutex_unlock(pthread_mutex_t *mutex);
+```
+All four mutex functions return 0 if executed successfully or an error code otherwise.
+
+⚠️**Attention**⚠️
+If we want to protect a section of our program using a mutex, then every thread that accesses that section must both lock and unlock the same mutex variable. Additionally, if a thread attempts to unlock a mutex it does not hold (has not previously locked), it will result in undefined behavior.
+
+
+
+
 
 
 

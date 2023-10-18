@@ -189,7 +189,7 @@ The function above will return **PTHREAD_BARRIER_SERIAL_THREAD** for a single ar
 
 Every thread that needs to wait at the barrier will call the above function on the same variable of type pthread_barrier_t. If the number of threads calling pthread_barrier_wait is less than the parameter with which the barrier was initialized, it will never be unblocked.
 
-![Mutex][(https://www.ictdemy.com/images/5689/threading/barrier.png)https://www.ictdemy.com/images/5689/threading/barrier.png)
+![Mutex](https://www.ictdemy.com/images/5689/threading/barrier.png)
 
 
 

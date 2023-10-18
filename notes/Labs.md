@@ -169,6 +169,9 @@ Another primitive synchronization technique which ensures that no thread can pro
 #### Best Analogy from Medium:
 >Think of it like being out for a hike with some friends. You agree to wait for each other at the top of each hill (and you make a mental note how many are in your group). Say you’re the first one to reach > the top of the first hill. You’ll wait there at the top for your friends. One by one, they’ll arrive at the top, but nobody will continue until the last person in your group arrives. Once they do, you’ll > all proceed. Barrier Synchronization works in same way.
 
+
+![Mutex](https://www.ictdemy.com/images/5689/threading/barrier.png)
+
 I. In Pthreads, a barrier is represented by the pthread_barrier_t type and initialized using the following function:
 ```C
 int pthread_barrier_init(pthread_barrier_t *barrier, const pthread_barrierattr_t *attr, unsigned count);
@@ -189,7 +192,6 @@ The function above will return **PTHREAD_BARRIER_SERIAL_THREAD** for a single ar
 
 Every thread that needs to wait at the barrier will call the above function on the same variable of type pthread_barrier_t. If the number of threads calling pthread_barrier_wait is less than the parameter with which the barrier was initialized, it will never be unblocked.
 
-![Mutex](https://www.ictdemy.com/images/5689/threading/barrier.png)
 
 
 

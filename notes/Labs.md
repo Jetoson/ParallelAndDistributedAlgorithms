@@ -63,7 +63,7 @@ A mutex is used to define a **critical region**, which is a section of the progr
 >  all the work. Actually, this is just extending the analogy, but you get the idea.
 
 
-![Mutex](https://www.ictdemy.com/images/5689/threading/barrier.png)
+![Mutex](https://iq.opengenus.org/content/images/2023/07/A351_Mutex-and-Semaphore-in-OS2.png)
 
 A mutex has two primary operations: **locking (lock)** and **unlocking (unlock)**. Through locking, a thread marks entry into the critical region, indicating that any other thread attempting to perform a locking operation will have to wait. Unlocking signifies the exit from the critical region, granting permission for another thread to enter the critical region.
 
@@ -169,7 +169,7 @@ Another primitive synchronization technique which ensures that no thread can pro
 #### Best Analogy from Medium:
 >Think of it like being out for a hike with some friends. You agree to wait for each other at the top of each hill (and you make a mental note how many are in your group). Say you’re the first one to reach > the top of the first hill. You’ll wait there at the top for your friends. One by one, they’ll arrive at the top, but nobody will continue until the last person in your group arrives. Once they do, you’ll > all proceed. Barrier Synchronization works in same way.
 
-[BarrierImage](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*dLShG53xSIHE1MAqVZptnw@2x.jpeg)
+![Barrier](https://www.ictdemy.com/images/5689/threading/barrier.png)
 
 I. In Pthreads, a barrier is represented by the pthread_barrier_t type and initialized using the following function:
 ```C

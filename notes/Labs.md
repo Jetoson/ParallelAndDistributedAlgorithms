@@ -188,6 +188,7 @@ int pthread_barrier_wait(pthread_barrier_t *barrier);
 The function above will return **PTHREAD_BARRIER_SERIAL_THREAD** for a single arbitrary thread from the barrier and 0 for all others. If the function encounters any errors, it will return an error code.
 
 ⚠️**Attention**⚠️
+
 Every thread that needs to wait at the barrier will call the above function on the same variable of type pthread_barrier_t. If the number of threads calling pthread_barrier_wait is less than the parameter with which the barrier was initialized, it will never be unblocked.
 
 

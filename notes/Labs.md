@@ -172,6 +172,66 @@ Another primitive synchronization technique which ensures that no thread can pro
 
 ![Mutex](https://www.ictdemy.com/images/5689/threading/barrier.png)
 
+#### Barrier usage example:
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+
+#define NUM_THREADS 5
+
+pthread_barrier_t barrier;
+
+void* worker(void* arg) {
+    int thread_num = *(int*)arg;
+
+    printf("Thread %d: Doing some work...\n", thread_num);
+
+    // Simulate some computation by sleeping
+    sleep(1 + (rand() % 3));
+
+    printf("Thread %d: Waiting at the barrier...\n", thread_num);
+
+    // Wait at the barrier
+    pthread_barrier_wait(&barrier);
+
+    printf("Thread %d: Passed the barrier and completing...\n", thread_num);
+
+    return NULL;
+}
+
+int main() {
+    pthread_t threads[NUM_THREADS];
+    int thread_ids[NUM_THREADS];
+
+    // Initialize the barrier
+    if (pthread_barrier_init(&barrier, NULL, NUM_THREADS) != 0) {
+        printf("Error initializing barrier.\n");
+        return 1;
+    }
+
+    // Create threads
+    for (int i = 0; i < NUM_THREADS; i++) {
+        thread_ids[i] = i;
+        if (pthread_create(&threads[i], NULL, worker, &thread_ids[i]) != 0) {
+            printf("Error creating thread %d.\n", i);
+            return 1;
+        }
+    }
+
+    // Wait for all threads to finish
+    for (int i = 0; i < NUM_THREADS; i++) {
+        pthread_join(threads[i], NULL);
+    }
+
+    // Destroy the barrier
+    pthread_barrier_destroy(&barrier);
+
+    return 0;
+}
+
+```
+
 I. In Pthreads, a barrier is represented by the pthread_barrier_t type and initialized using the following function:
 ```C
 int pthread_barrier_init(pthread_barrier_t *barrier, const pthread_barrierattr_t *attr, unsigned count);

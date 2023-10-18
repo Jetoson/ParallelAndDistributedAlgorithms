@@ -162,11 +162,33 @@ All four mutex functions return 0 if executed successfully or an error code othe
 
 If we want to protect a section of our program using a mutex, then every thread that accesses that section must both lock and unlock the same mutex variable. Additionally, if a thread attempts to unlock a mutex it does not hold (has not previously locked), it will result in undefined behavior.
 
+### Barrier
 
+Another primitive synchronization technique which ensures that no thread can proceed beyond the point where it is placed until all threads managed by the barrier reach that point. An example of usage is when we distribute a computation across multiple threads and want to proceed with the program execution only when each thread has finished its own calculations.In parallel computing, a barrier is a type of synchronization method where it enables multiple threads to wait until all threads have reached a particular point of execution(barrier) before any thread continues. Synchronization barriers can be shared across different threads and processes.
 
+#### Best Analogy from Medium:
+>Think of it like being out for a hike with some friends. You agree to wait for each other at the top of each hill (and you make a mental note how many are in your group). Say you’re the first one to reach > the top of the first hill. You’ll wait there at the top for your friends. One by one, they’ll arrive at the top, but nobody will continue until the last person in your group arrives. Once they do, you’ll > all proceed. Barrier Synchronization works in same way.
 
+[Barrier Image](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*dLShG53xSIHE1MAqVZptnw@2x.jpeg)
 
+I. In Pthreads, a barrier is represented by the pthread_barrier_t type and initialized using the following function:
+```C
+int pthread_barrier_init(pthread_barrier_t *barrier, const pthread_barrierattr_t *attr, unsigned count);
+```
+The first parameter represents a reference to the barrier, the second parameter can be used to set barrier attributes (similar to mutex), and the last parameter denotes the number of threads that must reach the barrier for it to be released. This means that the barrier has an internal counter that counts the threads waiting for its release. When the counter reaches the number set during the barrier initialization, the threads can resume their parallel execution.
 
+II. To deallocate a barrier, the following function is used:
+```C
+int pthread_barrier_destroy(pthread_barrier_t *barrier);
+```
+To make a thread wait at a barrier (to "set a barrier" in code), the following function is used:
+```C
+int pthread_barrier_wait(pthread_barrier_t *barrier);
+```
+The function above will return **PTHREAD_BARRIER_SERIAL_THREAD** for a single arbitrary thread from the barrier and 0 for all others. If the function encounters any errors, it will return an error code.
+
+⚠️**Attention**⚠️
+Every thread that needs to wait at the barrier will call the above function on the same variable of type pthread_barrier_t. If the number of threads calling pthread_barrier_wait is less than the parameter with which the barrier was initialized, it will never be unblocked.
 
 
 

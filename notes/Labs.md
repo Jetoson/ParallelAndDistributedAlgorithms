@@ -63,7 +63,7 @@ A mutex is used to define a **critical region**, which is a section of the progr
 >  all the work. Actually, this is just extending the analogy, but you get the idea.
 
 
-![Mutex](https://iq.opengenus.org/content/images/2023/07/A351_Mutex-and-Semaphore-in-OS2.png)
+![Mutex](https://www.ictdemy.com/images/5689/threading/barrier.png)
 
 A mutex has two primary operations: **locking (lock)** and **unlocking (unlock)**. Through locking, a thread marks entry into the critical region, indicating that any other thread attempting to perform a locking operation will have to wait. Unlocking signifies the exit from the critical region, granting permission for another thread to enter the critical region.
 

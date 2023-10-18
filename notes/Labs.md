@@ -1,26 +1,4 @@
-# Lab01
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Lab02
-
 
 ## Synchronization elements in Pthreads
 

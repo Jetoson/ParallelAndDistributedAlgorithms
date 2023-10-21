@@ -138,7 +138,8 @@ All four mutex functions return 0 if executed successfully or an error code othe
 
 ⚠️**Attention**⚠️
 
-If we want to protect a section of our program using a mutex, then every thread that accesses that section must both lock and unlock the same mutex variable. Additionally, if a thread attempts to unlock a mutex it does not hold (has not previously locked), it will result in undefined behavior.
+- If we want to protect a section of our program using a mutex, then every thread that accesses that section must both lock and unlock the same mutex variable. Additionally, if a thread attempts to unlock a mutex it does not hold (has not previously locked), it will result in undefined behavior.
+-  Mutexes can be applied only to threads in a single process and do not work between processes as do semaphores.
 
 ### Barrier
 

@@ -2,6 +2,7 @@
 1. https://stackoverflow.com/questions/5201852/what-is-a-thread-really
 2. https://en.wikipedia.org/wiki/Instruction-level_parallelism
 3. https://randu.org/tutorials/threads/
+4. https://www.cs.cmu.edu/afs/cs/academic/class/15492-f07/www/pthreads.html
 
 
 # Lab02

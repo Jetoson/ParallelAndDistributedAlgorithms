@@ -257,8 +257,7 @@ void *thread_function(void *dummyPtr)
 }
 ```
 
-
-![Cheat Sheet](https://imgur.com/a/xJe8caU)
+![Cheat_Sheet](https://imgur.com/a/xJe8caU)
 
 
 

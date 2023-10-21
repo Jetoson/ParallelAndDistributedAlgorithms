@@ -48,8 +48,18 @@ Difference among **process** and **thread** from Stackoverflow:
 > Threads are the software unit affected by control flow (function call, loop, goto), because those instructions operate on the Instruction Pointer, and that belongs to a particular thread. Threads are often > scheduled according to some prioritization scheme (although it's possible to design a system with one thread per processor core, in which case every thread is always running and no scheduling is needed).
 >
 > In fact the value of the Instruction Pointer and the instruction stored at that location is sufficient to determine a new value for the Instruction Pointer. For most instructions, this simply advances the > IP by the size of the instruction, but control flow instructions change the IP in other, predictable ways. The sequence of values the IP takes on forms a path of execution weaving through the program code, > giving rise to the name "thread".
+![Thread](https://randu.org/tutorials/threads/images/process.png)
 
 ### Analogy:
+> Isn't that something you put through an eye of a sewing needle?
+>
+>   Yes.
+>
+> How does it relate to programming then?
+> 
+> Think of sewing needles as the processors and the threads in a program as the thread fiber. If you had two needles but only one thread, it would take longer to finish the job (as one needle is idle)
+>  than if you split the thread into two and used both needles at the same time. Taking this analogy a little further, if one needle had to sew on a button (blocking I/O), the other needle could
+> continue doing other useful work even if the other needle took 1 hour to sew on a single button. If you only used one needle, you would be ~1 hour behind! 
 
 
 ### Traits of programs that can benefit from a multi-threaded implementation:

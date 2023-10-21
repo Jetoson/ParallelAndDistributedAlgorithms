@@ -256,22 +256,4 @@ void *thread_function(void *dummyPtr)
    pthread_mutex_unlock( &mutex1 );
 }
 ```
-
-![CheatSheet](https://imgur.com/a/xJe8caU)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Cheat Sheet](https://i.imgur.com/r01ILit.png)

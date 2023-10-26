@@ -11,3 +11,10 @@
 2. https://hpc-tutorials.llnl.gov/posix/
 3. https://man7.org/linux/man-pages/man7/pthreads.7.html
 4. https://medium.com/@jaydesai36/barrier-synchronization-in-threads-3c56f947047
+
+
+# Lab03
+1. https://www.geeksforgeeks.org/odd-even-transposition-sort-brick-sort-using-pthreads/
+2. https://www.baeldung.com/cs/odd-even-transposition-sort
+3. https://www.geeksforgeeks.org/serial-sort-vs-parallel-sort-java/
+4. 

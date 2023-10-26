@@ -46,7 +46,7 @@ function oddEvenSort(list) {
 As we see above, the Odd-Even Transposition Sort Algorithm allows us to parallelize the comparision and swapping of each phase without a race condition. i.e we can parallelly compute the comparision and swapping of **even index elements with their neighbours on the right side** and then **odd index elements with their neighbours on the right side**.
 
 Example:
-Let's say we have a list `[4, 3, 2, 1]`
+Let's say we have a list `[4, 3, 2, 1]` and let's sort it using OETS algorithm.
 #### First Iteration
 ##### `Odd Phase`:
         - Compare 4 (index 0) and 3 (index 1). Swap to get: [3, 4, 2, 1].
@@ -72,7 +72,7 @@ Let's say we have a list `[4, 3, 2, 1]`
         - Simultaneously, compare 1 (index 2) and 2 (index 3). No swap needed.
 
 `Result after Even Phase: [3, 4, 1, 2]`
-T
+
 #### Third Iteration
 
 ##### `Odd Phase`:

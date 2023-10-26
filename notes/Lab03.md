@@ -9,6 +9,8 @@
                    successors in the array and swap them if they’re out of order. 
     - `Even phase`: Every even indexed element is compared with the next odd indexed element. Basically, we repeat the process above but for all even-indexed elements and their successors.
 
+The complexity of `Bubble Sort algorithm` is O(N^2^), as it finishes in at most N iterations of the array (where N is the number of elements in the array to be sorted). But given `P` threads of execution, the complexity of `OETS` algorithm will be `O(N/P*N)`, or `O(N)` for `P=N`.
+
 Below is the traditional bubble sort algorithm:
 ```C
 function bubbleSort(list) {
@@ -88,4 +90,30 @@ Let's say we have a list `[4, 3, 2, 1]` and let's sort it using OETS algorithm.
 `Result after Even Phase: [1, 2, 3, 4]`
 
 Now the list is sorted!
+
+N.B. The odd-even transposition sort algorithm was originally designed to run on processor arrays, where each processor holds a single value from the array to be sorted and can only communicate with the processor to the left and the one to the right.
+
+### Shear sort (also known as row-column sort or snake-order sort)
+The algorithm assumes that we are working with processors connected in a `matrix-like form`. In this setup, a processor can communicate with neighbors to the `left`, `right`, `above`, and `below`. If we imagine that processors are arranged in a matrix, the two phases of the shear sort algorithm are as follows:
+    - Sort the matrix rows so that even rows have values sorted in ascending order, and odd rows have values sorted in descending order.
+    - Sort the columns in ascending order.
+    
+It is guaranteed that the algorithm will sort the numbers in at most sup(log2N) + 1 phases, where N is the number of elements to be sorted. For this reason, the algorithm has a complexity of O(Nlog2N). The pseudocode of the algorithm is presented below.
+
+```C
+function shearSort(matrix) {
+  for (k = 0; k < ceil(log2(matrix.lines * matrix.columns)) + 1; k++) {
+    for (i = 0; i < matrix.lines; i += 2) {
+      sortAscendingLine(i);
+    }
+    for (i = 1; i < matrix.lines; i += 2) {
+      sortDescendingLine(i);
+    }
+    for (i = 0; i < matrix.columns; i++) {
+      sortAscendingColumn(i);
+    }
+  }
+}
+```
+
 

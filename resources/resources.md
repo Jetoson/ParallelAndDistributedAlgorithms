@@ -18,3 +18,9 @@
 2. https://www.baeldung.com/cs/odd-even-transposition-sort
 3. https://www.geeksforgeeks.org/serial-sort-vs-parallel-sort-java/
 4. 
+
+
+# Lab04
+1. https://www.geeksforgeeks.org/atomic-variables-in-java-with-examples/
+2. https://docs.oracle.com/javase/tutorial/essential/concurrency/atomicvars.html
+3. https://docs.oracle.com/javase/8/docs/api/?java/util/concurrent/atomic/package-summary.html

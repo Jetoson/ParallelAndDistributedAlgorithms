@@ -136,7 +136,7 @@ public class Main {
 The reserved keyword `synchronized` is used to define blocks of code and methods that represent **critical sections/regions**.
 
 Example:
-```
+```Java
 public class MyConcurrentArray<T> {
  
     private static int numberOfInstances = 0;
